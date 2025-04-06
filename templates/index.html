@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Scheme Checker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="welcome-body">
+        <div class="welcome-container">
+            <h1>Welcome to Scheme Checker</h1>
+            <p>Check your eligibility for various government schemes by entering your Aadhar number.</p>
+            <a href="/entry" class="btn">Get Started</a>
+            <a href="/scheme-info" class="btn secondary-btn">Learn About Schemes</a>
+
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eligible Schemes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="scheme-body">
+        <div class="scheme-container">
+            <h1>Eligible Government Schemes for {{ name }}</h1>
+            <p>Aadhaar Number: {{ aadhaar }}</p>
+            <p>You are eligible for the following government schemes:</p>
+
+            <div class="scheme-cards">
+                {% for scheme in schemes %}
+                    <div class="card">
+                        <h2>{{ scheme }}</h2>
+                        <p>Details about {{ scheme }}.</p>
+                        <a href="/scheme-info" class="btn">Learn More</a>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <a href="/entry" class="back-btn">Back to Enter Aadhar</a>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

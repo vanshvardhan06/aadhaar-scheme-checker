@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Information About Schemes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- Scheme Information Page -->
+    <div class="info-body">
+        <div class="info-container">
+            <h1>Information About Government Schemes</h1>
+            <p>Learn more about the available government schemes that can benefit you.</p>
+
+            <div class="scheme-info-cards">
+                <div class="card">
+                    <h2>Pradhan Mantri Jan Dhan Yojana (PMJDY)</h2>
+                    <p>Launched to ensure access to financial services, such as banking, savings and deposit accounts, remittance, credit, insurance, and pensions.</p>
+                    <a href="https://www.pmjdy.gov.in/" target="_blank" class="btn">Official Website</a>
+                </div>
+
+                <div class="card">
+                    <h2>Pradhan Mantri Kisan Samman Nidhi (PM-KISAN)</h2>
+                    <p>Provides direct income support to farmers for agriculture-related needs. Eligible farmers receive ₹6,000 annually in three equal installments.</p>
+                    <a href="https://pmkisan.gov.in/" target="_blank" class="btn">Official Website</a>
+                </div>
+
+                <div class="card">
+                    <h2>PM Ujjwala Yojana</h2>
+                    <p>Provides free LPG connections to Below Poverty Line (BPL) families. The aim is to replace traditional cooking fuels with clean, LPG gas.</p>
+                    <a href="https://pmujjwalayojana.com/" target="_blank" class="btn">Official Website</a>
+                </div>
+
+                <div class="card">
+                    <h2>Ayushman Bharat - Pradhan Mantri Jan Arogya Yojana (PMJAY)</h2>
+                    <p>Provides health insurance to economically vulnerable families across India. It covers secondary and tertiary hospitalization expenses.</p>
+                    <a href="https://www.pmjay.gov.in/" target="_blank" class="btn">Official Website</a>
+                </div>
+            </div>
+
+            <a href="/" class="back-btn">Back to Home</a>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

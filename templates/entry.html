@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter Aadhar Number</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="input-card">
+            <h1>Enter Your Aadhar Number</h1>
+            <p>Provide your Aadhar number to check eligibility for various government schemes.</p>
+            <form action="/check_eligibility" method="get">
+                <input type="text" id="aadhar" name="aadhar" placeholder="Enter Aadhar Number" required>
+                <button type="submit" class="btn btn-primary">Check Eligibility</button>
+            </form>
+            <a href="/" class="btn btn-back">Back to Home</a>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
