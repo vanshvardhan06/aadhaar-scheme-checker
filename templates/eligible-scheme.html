@@ -5,27 +5,126 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eligible Schemes</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-image: url("{{ url_for('static', filename='images/619ff4970f1a2a90e9f9c46a_Aadhaar.jpg') }}");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: white; /* Adjusted text color for readability on dark background */
+        }
+
+        .scheme-body {
+            padding: 40px;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.6); /* Semi-transparent background for content */
+            border-radius: 10px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .aadhaar-details {
+            margin-bottom: 40px;
+        }
+
+        .detail-item {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .scheme-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .card {
+            background-color: rgba(255, 255, 255, 0.8); /* White background with some transparency */
+            padding: 20px;
+            width: 250px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            margin-top: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+
+        .back-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #FF5722;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            margin-top: 20px;
+        }
+
+        .back-btn:hover {
+            background-color: #e64a19;
+        }
+    </style>
 </head>
 <body>
     <div class="scheme-body">
-        <div class="scheme-container">
-            <h1>Eligible Government Schemes for {{ name }}</h1>
-            <p>Aadhaar Number: {{ aadhaar }}</p>
-            <p>You are eligible for the following government schemes:</p>
-
-            <div class="scheme-cards">
-                {% for scheme in schemes %}
-                    <div class="card">
-                        <h2>{{ scheme }}</h2>
-                        <p>Details about {{ scheme }}.</p>
-                        <a href="/scheme-info" class="btn">Learn More</a>
-                    </div>
-                {% endfor %}
+        <div class="aadhaar-details">
+            <h3>Aadhaar Holder Details</h3>
+            <div class="detail-item">
+                <strong>Name:</strong> {{ name }}
             </div>
-
-            <a href="/entry" class="back-btn">Back to Enter Aadhar</a>
+            <div class="detail-item">
+                <strong>Date of Birth:</strong> {{ dob }}
+            </div>
+            <div class="detail-item">
+                <strong>Gender:</strong> {{ gender }}
+            </div>
+            <div class="detail-item">
+                <strong>Address:</strong> {{ address }}
+            </div>
         </div>
+
+        <p style="color: white;">You are eligible for the following government schemes:</p>
+
+        <div class="scheme-cards">
+            {% for scheme in schemes %}
+                <div class="card">
+                    <h2>{{ scheme }}</h2>
+                    <p>Details about {{ scheme }}.</p>
+                    <a href="/scheme-info" class="btn">Learn More</a>
+                </div>
+            {% endfor %}
+        </div>
+
+        <a href="/entry" class="back-btn">Back to Enter Aadhar</a>
     </div>
+
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>

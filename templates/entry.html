@@ -6,15 +6,20 @@
     <title>Enter Aadhar Number</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-<body>
+<body class="aadhar-page"> <!-- Add the class here -->
     <div class="container">
         <div class="input-card">
+            <!-- Add the Aadhaar Logo Image here -->
+            <img src="{{ url_for('static', filename='images/Aadhaar_Logo.svg.png') }}" alt="Aadhaar Logo" class="form-image">
+
             <h1>Enter Your Aadhar Number</h1>
             <p>Provide your Aadhar number to check eligibility for various government schemes.</p>
+            
             <form action="/check_eligibility" method="get">
-                <input type="text" id="aadhar" name="aadhar" placeholder="Enter Aadhar Number" required>
+                <input type="text" id="aadhar" name="aadhar" placeholder="Enter Aadhar Number" required class="aadhar-input">
                 <button type="submit" class="btn btn-primary">Check Eligibility</button>
             </form>
+            
             <a href="/" class="btn btn-back">Back to Home</a>
         </div>
     </div>

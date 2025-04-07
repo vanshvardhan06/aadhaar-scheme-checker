@@ -4,18 +4,193 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to Scheme Checker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-image: url("{{ url_for('static', filename='images/AadhaarCard_15_MaskedAadhaarCardHowToDownloadItAndUseIt_1-800x500.jpg') }}");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: white; /* Adjusted text color for readability on dark background */
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Transparent background */
+            padding-top: 100px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .modal-content {
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+            margin: auto;
+            padding: 40px;
+            border-radius: 12px;
+            width: 80%;
+            max-width: 600px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            animation: zoomIn 1s ease-out;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 36px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+        }
+
+        .welcome-container {
+            text-align: center;
+        }
+
+        .logo {
+            max-width: 500px;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .description {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 16px 40px;
+            background-color: #4CAF50; /* Green button */
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 35px rgba(0, 128, 0, 0.3);
+        }
+
+        .secondary-btn {
+            background-color: #FF5722; /* Orange button */
+        }
+
+        .secondary-btn:hover {
+            background-color: #e64a19;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Media Queries for Mobile */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            .cta-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .logo {
+                max-width: 350px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="welcome-body">
-        <div class="welcome-container">
-            <h1>Welcome to Scheme Checker</h1>
-            <p>Check your eligibility for various government schemes by entering your Aadhar number.</p>
-            <a href="/entry" class="btn">Get Started</a>
-            <a href="/scheme-info" class="btn secondary-btn">Learn About Schemes</a>
-
+    <!-- Modal Structure -->
+    <div id="welcomeModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="welcome-container">
+                <img src="{{ url_for('static', filename='images/Digital-india-black.jpg') }}" alt="Digital India" class="logo">
+                <h1>Welcome to Scheme Checker</h1>
+                <p class="description">Check your eligibility for various government schemes by entering your Aadhar number.</p>
+                <div class="cta-buttons">
+                    <a href="/entry" class="btn">Get Started</a>
+                    <a href="/scheme-info" class="btn secondary-btn">Learn About Schemes</a>
+                </div>
+            </div>
         </div>
     </div>
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+    <!-- Script to show and close the modal -->
+    <script>
+        // Get the modal
+        var modal = document.getElementById("welcomeModal");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // Open the modal when the page loads
+        window.onload = function() {
+            modal.style.display = "block"; // Show the modal when the page loads
+        }
+
+        // Close the modal when the user clicks on <span> (x)
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // Close the modal when the user clicks anywhere outside of the modal
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
 </body>
 </html>
